@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="gamestyle.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="sudoku-board"></div>
+    
+    <div id="number-selector-container" style="width: 100%; max-width: 480px; margin-top: 20px; text-align: center;">
+      <div style="margin-bottom: 8px; font-weight: bold; font-size: 1.1rem;">Select Number</div>
+      
+      <div id="number-selector" class="number-selector">
+        <!-- Top row -->
+        <div class="num-row">
+          <button class="num-btn">1</button>
+          <button class="num-btn">2</button>
+          <button class="num-btn">3</button>
+          <button class="num-btn">4</button>
+          <button class="num-btn">5</button>
+        </div>
+        
+        <!-- Bottom row -->
+        <div class="num-row">
+          <button class="num-btn">6</button>
+          <button class="num-btn">7</button>
+          <button class="num-btn">8</button>
+          <button class="num-btn">9</button>
+          <button id="clear-btn" class="num-btn clear-btn">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

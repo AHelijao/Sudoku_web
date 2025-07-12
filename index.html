@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="resources/title.gif" alt="Sudoku Title" />
+      <div class="button-row">
+        <button class="btn start">
+          <img src="resources/start.gif" alt="Start Game" class="btn-gif" />
+        </button>
+        <button class="btn instructions">
+          <img src="resources/rules.gif" alt="Instructions" class="btn-gif" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Rules Popup -->
+    <div id="rules-popup" class="rules-modal hidden">
+      <div class="rules-content">
+        <h2>Sudoku Rules</h2>
+        <ol>
+          <li>Each row must contain digits 1–9 with no repeats.</li>
+          <li>Each column must contain digits 1–9 with no repeats.</li>
+          <li>Each 3×3 box must contain digits 1–9 with no repeats.</li>
+          <li>No number can appear in the same relative cell position across different 3×3 boxes.</li>
+        </ol>
+        <button onclick="closeRules()" class="btn close">Close</button>
+      </div>
+    </div>
+
+    <!-- Difficulty Selection Popup -->
+    <div id="difficulty-popup" class="rules-modal hidden">
+      <div class="rules-content">
+        <h2>Select Difficulty</h2>
+        <div class="button-row">
+          <button onclick="startGame('easy')" class="btn">Easy</button>
+          <button onclick="startGame('medium')" class="btn">Medium</button>
+          <button onclick="startGame('hard')" class="btn">Hard</button>
+        </div>
+        <button onclick="closeDifficulty()" class="btn close">Cancel</button>
+      </div>
+    </div>
+
+    <script>
+      const instructionsBtn = document.querySelector('.btn.instructions');
+      const rulesPopup = document.getElementById('rules-popup');
+      const startBtn = document.querySelector('.btn.start');
+      const difficultyPopup = document.getElementById('difficulty-popup');
+
+      instructionsBtn.addEventListener('click', () => {
+        rulesPopup.classList.remove('hidden');
+      });
+
+      startBtn.addEventListener('click', () => {
+        difficultyPopup.classList.remove('hidden');
+      });
+
+      function closeRules() {
+        rulesPopup.classList.add('hidden');
+      }
+
+      function closeDifficulty() {
+        difficultyPopup.classList.add('hidden');
+      }
+
+      function startGame(difficulty) {
+        window.location.href = `game.html?level=${difficulty}`;
+      }
+    </script>
+  </body>
+</html>

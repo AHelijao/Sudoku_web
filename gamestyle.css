@@ -1,0 +1,119 @@
+/* gamestyle.css */
+
+body {
+  margin: 0;
+  background: #FFDAB9; /* Match main page background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 480px;
+  width: 100%;
+}
+
+#sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 0; /* no gap, we'll handle spacing with borders */
+  width: 100%;
+  max-width: 480px;
+  padding: 3px;             /* Add padding equal to border thickness */
+  box-sizing: border-box;   /* Include padding & border in size */
+  background-color: #fff;
+  border: 3px solid #444; /* outer border */
+  border-radius: 8px;
+}
+
+.cell {
+  box-sizing: border-box;   /* Important: include border in cell size */
+  border: 1px solid #bbb; /* thin border */
+  aspect-ratio: 1 / 1; /* square cells */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  user-select: none;
+  cursor: pointer;
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Thick right border after col 2 and 5 */
+.cell:nth-child(9n + 3),
+.cell:nth-child(9n + 6) {
+  border-right: 3px solid #444;
+}
+
+/* Thick bottom border after row 2 and 5 */
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: 3px solid #444;
+}
+
+/* Fixed cells style */
+.cell.fixed {
+  background-color: #d7ebdd;
+  font-weight: bold;
+  cursor: default;
+}
+
+/* Selected cell highlight */
+.cell.selected {
+  background-color: #c6def1;
+}
+
+/* Invalid input */
+.cell.invalid {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.number-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.num-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.num-btn {
+  flex: 1 1 0;
+  max-width: none;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #a4f3c5;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.num-btn:hover {
+  background-color: #7bd6a1;
+}
+
+.clear-btn {
+  background-color: #ff5252;
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #dd3c3c;
+}
+
